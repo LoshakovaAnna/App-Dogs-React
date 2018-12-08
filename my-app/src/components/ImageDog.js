@@ -1,21 +1,14 @@
 import React, { Component} from 'react';
 
 
-class  ImageDog  extends Component {
-  
+class  ImageDog  extends Component {  
     render() {
-        return (
-           
-                
+        return (                
                 <div>
                     <img className="dog-image" src={this.props.src} alt="dog" ></img>
-                </div>
-
-             
+                </div>             
         );
-    };
-    
-   
+    };  
 };
 
 export default ImageDog;

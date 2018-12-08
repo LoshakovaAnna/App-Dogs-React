@@ -1,0 +1,26 @@
+
+.dog-image{
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 300px;
+    border: solid 3px black;
+
+}
+.btn-random-image{
+    width: 200px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 20px;
+    margin: 20px;
+
+}
+.input-coun-dog{
+  
+    height: 30px;;
+    padding-left: 10px;
+    margin: 20px auto;
+    width: 350px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}

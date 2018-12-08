@@ -1,33 +1,27 @@
 import React, { Component} from 'react';
-
 import ImageDog from './ImageDog';
 
 
 class  ImageDogsList  extends Component {
   
-    render() {
-        let idDog=1;
+    render() {    
         const srcArray =  this.props.src;
         console.log(srcArray);
-    /*    var listImg = srcArray.map(function (el, index){
-            idDog++;
-            return (
-            
-                 <ImageDog key={idDog} src={el} />
+        var listImg = srcArray.map(function (el, index){
+        return (            
+                 <ImageDog key={index} src={el} />
             )
-        });*/
+        });
 
         return (
-          // listImg
-          <ImageDog key={idDog} src={""} /> 
+           listImg
         );
-    };
-    
+    };    
    
 };
-
+/*
 ImageDogsList.propTypes = {
     src: PropTypes.array.isRequired
-  }
+}*/
 
 export default ImageDogsList;
