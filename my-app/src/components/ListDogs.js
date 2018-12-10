@@ -16,7 +16,10 @@ class  ListDogs  extends Component {
                     <input type="button" id="btnRandomImagez" value="Load List Dogs" 
                         className="btn-random-image" 
                         onClick={this.getListDogs}></input>
-                    
+                    <select className="select">
+                        <option value="r">fff</option>
+                        <option value="2">fdf o,m,</option>
+                    </select>
                         <div id = "listNames"  className = "list" onClick={this.getImage}></div>
                         <div id = "imND">{this.state.names}
                             <ImageDogsList src={this.state.src} />

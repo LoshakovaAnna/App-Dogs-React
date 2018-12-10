@@ -9,7 +9,7 @@ import ex1 from './components/ex1'
 import Dogs from './components/Dogs';
 import ListDogs from './components/ListDogs';
 import './style.css';
-import ImageDogsList from './components/ImageDogsList';
+import SpecificDogs from './components/SpecificDogs';
 
 
 
@@ -18,10 +18,12 @@ render(
         <div>
             <Route path='/' component={App}/>
             <Route path='/list' component={ListDogs}/>
-            <Route path = '/special-dog' component={ImageDogsList}/> 
-            <Route path='/random-вogs' component={Dogs}/>
-            <Route path='/ex' component={ex1}/>
-
+            <Route path='/random-dogs' component={Dogs}/>
+            
+            <Route path = '/specific-dog' component={SpecificDogs}/> 
+            <Route path = '/specific-dog/:sm' component={ex1}/> 
+            
+          
         </div>
   </BrowserRouter>,
   document.getElementById('root')

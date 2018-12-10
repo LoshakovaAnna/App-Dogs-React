@@ -6,7 +6,7 @@ class  ImageDogsList  extends Component {
   
     render() {    
         const srcArray =  this.props.src;
-        console.log(srcArray);
+      
         var listImg = srcArray.map(function (el, index){
         return (            
                  <ImageDog key={index} src={el} />

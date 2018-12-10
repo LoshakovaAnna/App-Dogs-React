@@ -18,7 +18,7 @@ class  Dogs  extends Component {
                         placeholder="input count dog"></input>
                     <input type="button" id="btnRandomImage" value="Random Image" 
                         className="btn-random-image" 
-                        onClick={this.getJSON}></input>
+                        onClick={this.loadImages}></input>
                 </div>
                 <div key="2" id="imagePlace">
                     <ImageDogsList src={this.state.urlImage} countDogs={this.state.countDog} />
@@ -27,17 +27,20 @@ class  Dogs  extends Component {
         );
     };
     
-    getJSON = async () =>{
+    loadImages = async () =>{
         let coundDogElval = document.getElementById('inputCountDog').value;
         let count;
         if (  parseInt(coundDogElval)) {
-            alert("number") ;
+            
             count =  parseInt(coundDogElval);
-            var imgJSON = await fetch(urlRandomDogs+count);
+            var imgJSON = await fetch(urlRandomDogs + count);
             const data = await imgJSON.json();
-            this.setState({urlImage:data.message , countDog : count});        
+            this.setState({
+                urlImage : data.message, 
+                countDog : count
+            });        
         } else 
-            alert("wrong val");
+            alert("Wrong value! Input number");
     }    
 };
 

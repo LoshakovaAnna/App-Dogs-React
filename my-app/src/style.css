@@ -43,9 +43,13 @@
     max-height: 400px; 
     overflow: auto;
 }
+.select-name{
+    width: 200px;
+    height: 30px;
+}
 .menu-item, .menu-link{
     list-style: none;
-    min-width: 200px;
+    width: 200px;
     height: 25px;
     background-color: rgb(170, 210, 211);
     padding: 5px;
