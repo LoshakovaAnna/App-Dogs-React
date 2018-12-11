@@ -8,7 +8,7 @@ const urlPart2 = "/images/random";
 
 class  ListDogs  extends Component {
     
-     state = { names : "", src :[]}
+     state = { names : "", srcList :[]}
     render() {
         return (
             <div >
@@ -16,13 +16,11 @@ class  ListDogs  extends Component {
                     <input type="button" id="btnRandomImagez" value="Load List Dogs" 
                         className="btn-random-image" 
                         onClick={this.getListDogs}></input>
-                    <select className="select">
-                        <option value="r">fff</option>
-                        <option value="2">fdf o,m,</option>
-                    </select>
+                 
                         <div id = "listNames"  className = "list" onClick={this.getImage}></div>
-                        <div id = "imND">{this.state.names}
-                            <ImageDogsList src={this.state.src} />
+                        <div id = "imND">
+                        <h2>{this.state.names}</h2>
+                            <ImageDogsList src={this.state.srcList} />
                         </div>
                 </div>
                
@@ -67,7 +65,7 @@ class  ListDogs  extends Component {
             const data = await imgJSON.json();
           
 
-            this.setState({names : el.id, src: [data.message]});
+            this.setState({names : el.id, srcList: [data.message]});
         }
     };
 

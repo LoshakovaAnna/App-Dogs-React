@@ -18,7 +18,7 @@ class  SpecificDogs  extends Component {
         return (
         
             <div >
-                SpecificDogs
+                
                <div>choose
                     <select className="select-name"  id = "select-name" >
                     
@@ -33,8 +33,10 @@ class  SpecificDogs  extends Component {
 
     changeLink(val){
 
-        this.setState({ link : val});
-        console.log(this.state.link);
+        this.setState(
+            { link : val}
+            );
+     
     }
     componentDidMount(){
         
@@ -48,7 +50,7 @@ class  SpecificDogs  extends Component {
     
 
         var listSelectElem = document.getElementById('select-name');
-       if (listSelectElem) alert("find"); else alert("somethnig wrong");
+     
         for (var key in mes) {
             if (mes[key].length !== 0) {
                 for (let i = 0; i < mes[key].length; i++) {

@@ -3,9 +3,9 @@ import {render} from 'react-dom';
 
 import {  Route,  BrowserRouter } from 'react-router-dom';
 
-import App from './components/App'
+import App from './components/App';
 
-import ex1 from './components/ex1'
+import dinamicPageSpecDog from './components/dinamicPageSpecDog';
 import Dogs from './components/Dogs';
 import ListDogs from './components/ListDogs';
 import './style.css';
@@ -21,7 +21,7 @@ render(
             <Route path='/random-dogs' component={Dogs}/>
             
             <Route path = '/specific-dog' component={SpecificDogs}/> 
-            <Route path = '/specific-dog/:sm' component={ex1}/> 
+            <Route path = '/specific-dog/:sm' component={dinamicPageSpecDog}/> 
             
           
         </div>

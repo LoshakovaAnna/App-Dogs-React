@@ -6,12 +6,12 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <h1>App</h1>      
-        <ul>
+        <h1 >Dogs Images</h1>      
+        <ul className="main-menu">
             
-          <li><Link to='/random-dogs'>Random Dogs</Link></li>
-          <li><Link to='/list'>List</Link></li>
-          <li><Link to='/specific-dog'>Specific Dog</Link></li>           
+          <li className = "menu-link"><Link to='/random-dogs'>Random Dogs</Link></li>
+          <li className = "menu-link"><Link to='/list'>List</Link></li>
+          <li className = "menu-link"><Link to='/specific-dog'>Specific Dog</Link></li>           
           
         </ul>
         {/* добавили вывод потомков
