@@ -1,6 +1,7 @@
 import React from 'react';
-import {render} from 'react-dom';
-
+import ReactDOM, {render} from 'react-dom';
+import { createStore, bindActionCreators } from 'redux';
+import { connect, Provider } from 'react-redux';
 import {  Route,  BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
@@ -8,12 +9,17 @@ import App from './components/App';
 import dinamicPageSpecDog from './components/dinamicPageSpecDog';
 import Dogs from './components/Dogs';
 import ListDogs from './components/ListDogs';
-import './style.css';
 import SpecificDogs from './components/SpecificDogs';
 
+import { rootReducer } from './store/reducer';
+import './style.css';
 
 
-render(
+//create хранилище,  управление actio
+const store = createStore(rootReducer);
+console.log(store.getState());
+
+render(<Provider store = {store}>
   <BrowserRouter>
         <div>
             <Route path='/' component={App}/>
@@ -25,6 +31,7 @@ render(
             
           
         </div>
-  </BrowserRouter>,
+  </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 )
