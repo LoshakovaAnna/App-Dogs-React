@@ -21,8 +21,7 @@ export default   function dinamicPageSpecDog(props) {
         console.log(url);
         var imgJSON = await fetch(url);
         const data = await imgJSON.json();
-        console.log(data.message);
-    
+        console.log(data.message);   
     
     }
 

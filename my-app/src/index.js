@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM, {render} from 'react-dom';
-import { createStore, bindActionCreators } from 'redux';
-import { connect, Provider } from 'react-redux';
+import  {render} from 'react-dom';
+import { createStore } from 'redux';
+import {  Provider } from 'react-redux';
 import {  Route,  BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
@@ -15,7 +15,6 @@ import { rootReducer } from './store/reducer';
 import './style.css';
 
 
-//create хранилище,  управление actio
 const store = createStore(rootReducer);
 console.log(store.getState());
 

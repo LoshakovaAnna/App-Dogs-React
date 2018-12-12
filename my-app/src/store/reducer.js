@@ -11,10 +11,12 @@ export const rootReducer = (state = initialState, action) => {
     switch (action.type){
       case 'PUT_NAME_DOG_TO_LIST' :
       {
-        const newList = state.listDogs.push(action.payload);
+        const newList = state.listDogs; 
+        if (newList.indexOf(action.payload)=== -1) 
+            newList.push(action.payload);
         return {...state, listDogs : newList};
       }
-      
+      default  :  
+            return state;
     }
-    return state;
   };
