@@ -12,4 +12,18 @@ export const createNewArrayLinksImages = (newArrayLinkImages) =>{
     payload: newArrayLinkImages
   };
 };
-  
+
+
+export const putLinkImage = (newLinkImage) =>{
+  return {
+    type: 'PUT_LINK_IMAGE' ,
+    payload: newLinkImage
+  };
+};
+
+export const setChoosenBreed = (chooseBreed) =>{
+  return {
+    type: 'SET_CHOOSEN_BREED' ,
+    payload: chooseBreed
+  };
+};

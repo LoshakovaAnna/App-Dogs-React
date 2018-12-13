@@ -1,15 +1,11 @@
 import React, { Component} from 'react';
-import ImageDogsList from './ImageDogsSet'; 
+import ImageDogsSet from './ImageDogsSet'; 
 import {  bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createNewArrayLinksImages } from '../store/actions';
 
 
 class  PageRandomDogs  extends Component {
-    state = { 
-        urlImage : [],
-        countDog : 1
-    }
      
     render() {
         const {urlRandom, arrLinkImages, createNewArrayLinksImages } = this.props;
@@ -23,7 +19,7 @@ class  PageRandomDogs  extends Component {
                         onClick={this.loadImages}></input>
                 </div>
                 <div key="2" id="imagePlace">
-                    <ImageDogsList src={arrLinkImages}  />
+                    <ImageDogsSet src={arrLinkImages}  />
                 </div>
             </div>
         );

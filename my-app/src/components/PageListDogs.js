@@ -1,34 +1,19 @@
 import React, { Component} from 'react';
-
 import {  bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { putNameDogToList } from '../store/actions';
-class  ListDogs  extends Component {
+
+import {ftch_lict} from '../func/FetchList';
+
+
+class  PageListDogs  extends Component {
     
     render() {
         const { urlAll, listDogs, putNameDogToList} = this.props;
         var mes, nameDog;
-        var show= this.showListDogs;
-        fetch(urlAll)
-            .then(function(response) {
-                return response.json()
-            }).then(function(data) {
-                mes = data.message;
-                for (var key in mes) {
-                    if (mes[key].length !== 0) {
-                        for (let i = 0; i < mes[key].length; i++) {
-                            nameDog = key + '-' + mes[key][i];
-                            putNameDogToList(nameDog);
-                        }
-                    }
-                    else{
-                        nameDog = key;
-                        putNameDogToList(nameDog);
-                    }
-                };
-            }).then(function(data){
-             show(listDogs);
-            });
+        var show = this.showListDogs;
+        
+           // show(listDogs);
 
         return (
             <div >
@@ -37,16 +22,28 @@ class  ListDogs  extends Component {
         );
     };
     
+    componentDidMount(){
+       var p = this.props.listDogs;
+       var f = this.showListDogs;
+        ftch_lict().then(() => {
+           f(p);
+    
+        });
+   
+    }
+
     showListDogs(listDogs){
        var mes = listDogs;
        var listMenuElem = document.getElementById('listNames');
-      
-        while (listMenuElem.firstChild){      
+      //{alert("wor")}
+       /* while (listMenuElem.firstChild){      
             listMenuElem.removeChild(listMenuElem.firstChild);
         }
-
-        var ul = document.createElement("ul");   
-        ul.className = "list-like-menu";
+*/
+           var ul = document.createElement("ul");   
+          ul.className = "list-like-menu";
+            console.log(mes.length);
+        
         for (let i = 0; i < mes.length; i++) {
             var li = document.createElement("li");   
             li.className="menu-item";
@@ -73,4 +70,4 @@ const  putActionToProps = (dispatch) =>{
   };
 
 
-export default connect(putStateToProps, putActionToProps)(ListDogs);
+export default connect(putStateToProps, putActionToProps)(PageListDogs);

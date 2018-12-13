@@ -4,8 +4,11 @@ const initialState = {
     urlOneDogPart1 : 'https://dog.ceo/api/breed/',
     urlOneDogPart2 : '/images/random/"',
     urlOneDog : '',
+    choosenBreed: '',
     listDogs : [],
-    arrLinkImages : []
+    arrLinkImages : [],
+    linkImage : 'AFFENPINSCHER'
+    
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -19,8 +22,19 @@ export const rootReducer = (state = initialState, action) => {
       }
       case 'CREATE_NEW_ARRAY_LINKS_IMAGES' :
       {
-          //alert(action.payload);
+        //  alert(action.payload);
         return {...state, arrLinkImages : action.payload};
+      }
+      case 'PUT_LINK_IMAGE' :
+      {
+          //alert(action.payload);
+        return {...state, linkImage : action.payload};
+      }
+      case 'SET_CHOOSEN_BREED' :
+      {
+
+         // alert(action.payload);
+        return {...state, choosenBreed : action.payload};
       }
       default  :  
             return state;
