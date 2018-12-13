@@ -4,7 +4,8 @@ const initialState = {
     urlOneDogPart1 : 'https://dog.ceo/api/breed/',
     urlOneDogPart2 : '/images/random/"',
     urlOneDog : '',
-    listDogs : []
+    listDogs : [],
+    arrLinkImages : []
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ export const rootReducer = (state = initialState, action) => {
         if (newList.indexOf(action.payload)=== -1) 
             newList.push(action.payload);
         return {...state, listDogs : newList};
+      }
+      case 'CREATE_NEW_ARRAY_LINKS_IMAGES' :
+      {
+          //alert(action.payload);
+        return {...state, arrLinkImages : action.payload};
       }
       default  :  
             return state;

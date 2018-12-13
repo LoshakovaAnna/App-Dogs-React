@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ImageDogsList from './ImageDogsList';
+import ImageDogsList from './ImageDogsSet';
 
 const urlPart1 = "https://dog.ceo/api/breed/";
 const urlPart2 = "/images/random/3";

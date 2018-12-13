@@ -4,14 +4,14 @@ import { createStore } from 'redux';
 import {  Provider } from 'react-redux';
 import {  Route,  BrowserRouter } from 'react-router-dom';
 
-import App from './components/App';
+import { rootReducer } from './store/reducer';
 
+import App from './components/App';
 import dinamicPageSpecDog from './components/dinamicPageSpecDog';
-import Dogs from './components/Dogs';
-import ListDogs from './components/ListDogs';
+import PageRandomDogs from './components/PageRandomDogs';
+import ListDogs from './components/PageListDogs';
 import SpecificDogs from './components/SpecificDogs';
 
-import { rootReducer } from './store/reducer';
 import './style.css';
 
 
@@ -23,7 +23,7 @@ render(<Provider store = {store}>
         <div>
             <Route path='/' component={App}/>
             <Route path='/list' component={ListDogs}/>
-            <Route path='/random-dogs' component={Dogs}/>
+            <Route path='/random-dogs' component={PageRandomDogs}/>
             
             <Route path = '/specific-dog' component={SpecificDogs}/> 
             <Route path = '/specific-dog/:sm' component={dinamicPageSpecDog}/> 
