@@ -18,7 +18,6 @@ import './style.css';
 
 
 export const store = createStore(rootReducer);
-console.log(store.getState());
 
 render(<Provider store = {store}>
   <BrowserRouter>

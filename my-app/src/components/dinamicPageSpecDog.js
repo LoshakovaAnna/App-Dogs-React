@@ -1,29 +1,55 @@
-import React from 'react';
+import React, { Component} from 'react';
+import {  bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
+import {  changeUrlForLinksImage } from '../store/actions';
 import ImageDogsSet from './ImageDogsSet';
-import {ftch_lict} from '../func/FetchList';
-const urlPart1 = "https://dog.ceo/api/breed/";
-const urlPart2 = "/images/random/3";
+import {fetch_link} from '../func/FetchLinks';
 
-export default   function dinamicPageSpecDog(props) {
-  var url  = urlPart1 + props.match.params.sm+ urlPart2;
-  
-  
-  return ( <div>
+class dinamicPageSpecDog  extends Component {
+   
+    render() {
+      return ( 
+          <div>
+              <h1>{this.props.choosenBreed}</h1>  
+              <input type="text" id="inputCountDog"  className="input-coun-dog"
+                      placeholder="input count dog"></input>
 
-               <h1>{props.match.params.sm}</h1>
-               <input type="text" id="inputCountDog"  className="input-coun-dog"
-                        placeholder="input count dog"></input>
-
-                 <input type="button" i value="fetch" 
+               <input type="button"  value="fetch" 
                         className="btn-random-image" 
-                        onClick={ftch_lict}></input>
+                        onClick={this.loadImages}></input>
               <div key="2" id="imagePlace">
-                    <ImageDogsSet src=""  />
+                  <ImageDogsSet src={this.props.arrLinkImages}  />
                 </div>
           </div>
-      );
-    
+      );    
     };
 
-  
+    loadImages = () =>{
+      let countDogsValue = document.getElementById('inputCountDog').value;
+      let change = this.props.changeUrlForLinksImage;
+      if (  parseInt(countDogsValue)) {
+        var newUrl =  this.props.urlOneDogPart1 +  this.props.choosenBreed +  this.props.urlOneDogPart2 + countDogsValue
+        change(newUrl);
+        fetch_link(); 
+      } else 
+        alert("Wrong value! Input number");
+  }
+};
+
+const putStateToProps  = (state) =>{
+  return {
+      arrLinkImages : state.arrLinkImages,
+      choosenBreed : state.choosenBreed,
+      urlOneDogPart1 : state.urlOneDogPart1,
+      urlOneDogPart2 : state.urlOneDogPart2 
+  }
+};
+
+const  putActionToProps = (dispatch) =>{
+  return {
+      changeUrlForLinksImage : bindActionCreators (changeUrlForLinksImage, dispatch)
+  }
+};
+
+export default connect(putStateToProps, putActionToProps)(dinamicPageSpecDog);

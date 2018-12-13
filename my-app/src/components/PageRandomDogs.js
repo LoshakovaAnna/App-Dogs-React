@@ -2,51 +2,40 @@ import React, { Component} from 'react';
 import ImageDogsSet from './ImageDogsSet'; 
 import {  bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { createNewArrayLinksImages } from '../store/actions';
+import {  changeUrlForLinksImage } from '../store/actions';
 
+import {fetch_link} from '../func/FetchLinks';
 
 class  PageRandomDogs  extends Component {
      
-    render() {
-        const {urlRandom, arrLinkImages, createNewArrayLinksImages } = this.props;
+    render() {      
         return (
             <div >
                 <div key="1">
                     <input type="text" id="inputCountDog"  className="input-coun-dog"
                         placeholder="input count dog"></input>
-                    <input type="button" id="btnRandomImage" value="Random Image" 
+                    <input type="button" id="btnRandomImage" value="Load random Image" 
                         className="btn-random-image" 
                         onClick={this.loadImages}></input>
                 </div>
                 <div key="2" id="imagePlace">
-                    <ImageDogsSet src={arrLinkImages}  />
+                    <ImageDogsSet src={this.props.arrLinkImages}  />
                 </div>
             </div>
         );
     };
     
-    loadImages = async () =>{
+    loadImages = () =>{
         let countDogsValue = document.getElementById('inputCountDog').value;
-        let count;
-        let urlRandomDogs = this.props.urlRandom;
-        if (  parseInt(countDogsValue)) {
-            
-            count =  parseInt(countDogsValue);
-            var imgJSON = await fetch(urlRandomDogs + count);
-            const data = await imgJSON.json();
-            this.props.createNewArrayLinksImages(data.message);
-            /*
-            this.setState({
-                urlImage : data.message
-            });        */
+        let change = this.props.changeUrlForLinksImage;
+        if (  parseInt(countDogsValue)) {            
+            var newUrl = this.props.urlRandom + +countDogsValue;
+            change(newUrl);
+            fetch_link();         
         } else 
             alert("Wrong value! Input number");
     }    
 };
-
-//export default PageRandomDogs;
-
-
 
 const putStateToProps  = (state) =>{
     return {
@@ -57,7 +46,7 @@ const putStateToProps  = (state) =>{
 
 const  putActionToProps = (dispatch) =>{
     return {
-        createNewArrayLinksImages: bindActionCreators (createNewArrayLinksImages, dispatch) 
+        changeUrlForLinksImage : bindActionCreators (changeUrlForLinksImage, dispatch) ,
     }
   };
 

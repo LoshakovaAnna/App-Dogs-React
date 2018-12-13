@@ -27,3 +27,10 @@ export const setChoosenBreed = (chooseBreed) =>{
     payload: chooseBreed
   };
 };
+
+export const changeUrlForLinksImage = (newUrl) =>{
+  return {
+    type : 'CHANGE_URL_FOR_LINKS_IMAGE',
+    payload : newUrl
+  };
+};
