@@ -1,10 +1,9 @@
-export const putNameDogToList = (newNameDog) =>{
+export const putBreedDogToList = (newBreedDog) =>{
     return {
-      type: 'PUT_NAME_DOG_TO_LIST' ,
-      payload: newNameDog
+      type: 'PUT_BREED_DOG_TO_LIST' ,
+      payload: newBreedDog
     };
-  };
-
+};
   
 export const createNewArrayLinksImages = (newArrayLinkImages) =>{
   return {
@@ -13,24 +12,16 @@ export const createNewArrayLinksImages = (newArrayLinkImages) =>{
   };
 };
 
-
-export const putLinkImage = (newLinkImage) =>{
+export const setChosenBreed = (chosenBreed) =>{
   return {
-    type: 'PUT_LINK_IMAGE' ,
-    payload: newLinkImage
+    type: 'SET_CHOSEN_BREED' ,
+    payload: chosenBreed
   };
 };
 
-export const setChoosenBreed = (chooseBreed) =>{
+export const changeUrlForLoadLinksImage = (newUrl) =>{
   return {
-    type: 'SET_CHOOSEN_BREED' ,
-    payload: chooseBreed
-  };
-};
-
-export const changeUrlForLinksImage = (newUrl) =>{
-  return {
-    type : 'CHANGE_URL_FOR_LINKS_IMAGE',
+    type : 'CHANGE_URL_FOR_LOAD_LINKS_IMAGE',
     payload : newUrl
   };
 };

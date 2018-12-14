@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import {  bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import {  setChoosenBreed } from '../store/actions';
+import {  setChosenBreed } from '../store/actions';
 
-import {fetch_list} from '../func/FetchList';
+import {loadListBreedDogs} from '../load_function/LoadListBreedDogs';
 
 class  PageSpecificDogs  extends Component {
    
@@ -15,7 +15,7 @@ class  PageSpecificDogs  extends Component {
                <div className="flex-row">                 
                     <div id="list-for-choose"></div>                
                    <div>
-                        <Link className="link-btn"  to={`/specific-dog/${this.props.choosenBreed}`}>choose</Link>
+                        <Link className="link-btn"  to={`/specific-dog/${this.props.chosenBreed}`}>choose</Link>
                     </div>
                 </div>
             </div>
@@ -23,26 +23,26 @@ class  PageSpecificDogs  extends Component {
     };
 
     componentDidMount(){
-        const  getList =this.getListDogs;
+        const  getList =this.getListBreedDogs;
         
-        fetch_list().then(() => {
+        loadListBreedDogs().then(() => {
             getList();     
          });
     };
 
-    change = (event)=>{
-       this.props.setChoosenBreed(event.target.value);
+    setChosenBreed = (event)=>{
+       this.props.setChosenBreed(event.target.value);
     };
     
-    getListDogs = () =>{
+    getListBreedDogs = () =>{
         var divList  = document.getElementById('list-for-choose');
         var listSelectElem = document.createElement("select");
-        const arrnames = this.props.listDogs;
+        const arrayBreed = this.props.listBreedDogs;
    
-        listSelectElem.onchange = this.change;
+        listSelectElem.onchange = this.setChosenBreed;
     
-        for (let i = 0; i < arrnames.length; i++) {           
-            var option = this.createOptionOfSelect(  arrnames[i]);
+        for (let i = 0; i < arrayBreed.length; i++) {           
+            var option = this.createOptionOfSelect( arrayBreed[i]);
                 listSelectElem.appendChild(option); 
             }  
             divList.appendChild(listSelectElem);            
@@ -50,8 +50,8 @@ class  PageSpecificDogs  extends Component {
      
     createOptionOfSelect (breed) {            
         var option = document.createElement("option");   
-        option.className="select-option";
-        option.value= breed;
+        option.className ="select-option";
+        option.value = breed;
         if ( breed.indexOf('-') !== -1)   
         {          
             var subbreed = breed.split('-');
@@ -63,19 +63,18 @@ class  PageSpecificDogs  extends Component {
         }
         return option;
     };
-
 };
 
 const putStateToProps  = (state) =>{
     return {
-        choosenBreed : state.choosenBreed,
-        listDogs : state.listDogs
+        chosenBreed : state.chosenBreed,
+        listBreedDogs : state.listBreedDogs
     }
 };
 
 const  putActionToProps = (dispatch) =>{
     return {
-        setChoosenBreed : bindActionCreators (setChoosenBreed, dispatch)
+        setChosenBreed : bindActionCreators (setChosenBreed, dispatch)
     }
 };
 

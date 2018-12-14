@@ -27,7 +27,7 @@ render(<Provider store = {store}>
             <Route path='/random-dogs' component={PageRandomDogs}/>
             
             <Route path = '/specific-dog-choose' component={PageSpecificDogs}/> 
-            <Route path = '/specific-dog/:sm' component={dinamicPageSpecDog}/> 
+            <Route path = '/specific-dog/:breed' component={dinamicPageSpecDog}/> 
             
           
         </div>

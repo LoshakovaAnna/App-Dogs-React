@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { connect } from 'react-redux';
 
-import {fetch_list} from '../func/FetchList';
+import {loadListBreedDogs} from '../load_function/LoadListBreedDogs';
 
 
 class  PageListDogs  extends Component {
@@ -9,21 +9,21 @@ class  PageListDogs  extends Component {
     render() {
         return (
             <div >
-                <div id = "listNames"  className = "list"  ></div>
+                <div id = "listBreeds"  className = "list"  ></div>
             </div>
         );
     };
 
     componentDidMount(){
-        var listDogs = this.props.listDogs;
+        var listDogs = this.props.listBreedDogs;
         var showListDogs = this.showListDogs;
-        fetch_list().then(() => {
+        loadListBreedDogs().then(() => {
             showListDogs(listDogs);    
         });  
     }
 
     showListDogs(listDogs){
-        var listMenuElem = document.getElementById('listNames');
+        var listMenuElem = document.getElementById('listBreeds');
         var ul = document.createElement("ul");   
         ul.className = "list-like-menu";
         
@@ -39,7 +39,7 @@ class  PageListDogs  extends Component {
 
 const putStateToProps  = (state) =>{
     return {
-        listDogs : state.listDogs
+        listBreedDogs : state.listBreedDogs
     };
 };
 
