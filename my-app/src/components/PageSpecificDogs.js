@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {  bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import {  setChosenBreed } from '../store/actions';
+import {  setChosenBreed, clearArrayLinkImage } from '../store/actions';
 
 import {loadListBreedDogs} from '../load_function/LoadListBreedDogs';
 
@@ -12,10 +12,10 @@ class  PageSpecificDogs  extends Component {
     render() {    
         return (        
             <div >                
-               <div className="flex-row">                 
+               <div className="d-flex flex-row justify-content-center  p-5 ">                 
                     <div id="list-for-choose"></div>                
                    <div>
-                        <Link className="link-btn"  to={`/specific-dog/${this.props.chosenBreed}`}>choose</Link>
+                        <Link className="link-btn btn btn-success mx-3"  to={`/specific-dog/${this.props.chosenBreed}`}>choose</Link>
                     </div>
                 </div>
             </div>
@@ -28,6 +28,7 @@ class  PageSpecificDogs  extends Component {
         loadListBreedDogs().then(() => {
             getList();     
          });
+        this.props.clearArrayLinkImage();
     };
 
     setChosenBreed = (event)=>{
@@ -74,7 +75,8 @@ const putStateToProps  = (state) =>{
 
 const  putActionToProps = (dispatch) =>{
     return {
-        setChosenBreed : bindActionCreators (setChosenBreed, dispatch)
+        setChosenBreed : bindActionCreators (setChosenBreed, dispatch),
+        clearArrayLinkImage :bindActionCreators (clearArrayLinkImage, dispatch)
     }
 };
 

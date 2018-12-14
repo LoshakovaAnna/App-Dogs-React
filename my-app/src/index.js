@@ -3,7 +3,6 @@ import  {render} from 'react-dom';
 import { createStore } from 'redux';
 import {  Provider } from 'react-redux';
 import {  Route,  BrowserRouter } from 'react-router-dom';
-
 import { rootReducer } from './store/reducer';
 
 import App from './components/App';
@@ -13,7 +12,7 @@ import PageListDogs from './components/PageListDogs';
 import PageSpecificDogs from './components/PageSpecificDogs';
 
 import dinamicPageSpecDog from './components/dinamicPageSpecDog';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css';
 
 

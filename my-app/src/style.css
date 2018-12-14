@@ -1,81 +1,35 @@
-.main-menu{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between
+body{
+    font-size: 1.5rem;
 }
-h1, h2{
-    text-align: center;
-    text-transform: uppercase;
-
-}
-.flex-row{
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
-}
-.dog-image{
-    min-width: 200px;
-    max-width: 300px;
-    min-height: 200px;
-    max-height: 300px;
-    border: solid 3px black;
-    display: block;
-    margin: 10px auto;    
-
-}
-.btn-random-image{
-    width: 200px;
-    height: 40px;
-    background-color: #fff;
-    font-size: 20px;
-    margin: 20px;
-
-}
-.input-coun-dog{
-  
-    height: 30px;;
-    padding-left: 10px;
-    margin: 20px auto;
-    width: 350px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
-.list{   
-    display: block;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;  
+.p-5{
+    padding-top: 5rem;
     
-    width: 350px;
-    max-height: 400px; 
+    padding-bottom: 5rem;
+}
+.nav-item{
+    background-color: rgba(222, 226, 230, 1);
+    color: black;
+}
+.nav-tabs .nav-link:focus{
+    border-color: brown;
+}
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: darkslategrey;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.list-breed{
+    margin:20px;
+    
     overflow: auto;
-    margin: 10px auto;
+    max-height: 35rem; 
 }
-.select-name{
-    width: 200px;
-    height: 30px;
-}
-.menu-item, .menu-link{
-    
-    list-style: none;
-    width: 250px;
-  
-    
 
-}
-.link-btn{
-    margin: 5px;
-    padding: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-    color : white;
-    background: #659942;
-    border: greenyellow solid 1px;
-    border-radius: 3px;
-    text-decoration: none;
-    text-transform: none;
+.dog-image {
+    
+    height: 300px;
+    border: solid 3px rgb(76, 101, 110);
+    margin: 10px auto;   
 }

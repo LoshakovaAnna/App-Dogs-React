@@ -4,13 +4,10 @@ const initialState = {
     urlRandom : 'https://dog.ceo/api/breeds/image/random/',
     urlOneDogPart1 : 'https://dog.ceo/api/breed/',
     urlOneDogPart2 : '/images/random/',
-    //urlOneDog : '',
-    urlForLoadLinksImage : '', //urlForLinksImage
-    chosenBreed: '',//choosenBreed
-    listBreedDogs : [], //listDogs
-    arrLinkImages : []
-   // linkImage : 'AFFENPINSCHER'
-    
+    urlForLoadLinksImage : '', 
+    chosenBreed: '',
+    listBreedDogs : [], 
+    arrLinkImages : []    
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -33,6 +30,10 @@ export const rootReducer = (state = initialState, action) => {
       case 'CHANGE_URL_FOR_LOAD_LINKS_IMAGE' :
       {
         return {...state, urlForLoadLinksImage : action.payload};
+      }
+      case 'CLEAR_ARRAY_LINK_IMAGE' :
+      {
+        return {...state, arrLinkImages : action.payload};
       }
       default  :  
             return state;

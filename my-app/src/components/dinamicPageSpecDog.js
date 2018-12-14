@@ -11,12 +11,12 @@ class dinamicPageSpecDog  extends Component {
     render() {
       return ( 
           <div>
-              <h1>{this.props.chosenBreed}</h1>  
-              <div key="1" id="imagePlace">
+              <h2 className="text-center text-uppercase py-10">{this.props.chosenBreed}</h2>  
+              <div key="1" className="d-flex justify-content-center py-10">
                 <input 
                       type="text" 
                       id="inputCountDog"  
-                      className="input-coun-dog"
+                      className="input-coun-dog "
                       placeholder="input count dog"
                 />
 
@@ -27,7 +27,7 @@ class dinamicPageSpecDog  extends Component {
                         onClick={this.loadImages} 
                 />
               </div>
-              <div key="2" id="imagePlace">
+              <div key="2" id="imagePlace" className="d-flex flex-row flex-wrap justify-content-center">
                   <ImageDogsSet src={this.props.arrLinkImages}  />
               </div>
           </div>

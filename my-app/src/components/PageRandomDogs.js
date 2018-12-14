@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ImageDogsSet from './ImageDogsSet'; 
 import {  bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {  changeUrlForLoadLinksImage } from '../store/actions';
+import {  changeUrlForLoadLinksImage, clearArrayLinkImage } from '../store/actions';
 
 import { loadLinksOfImages } from '../load_function/LoadLinksOfImages';
 
@@ -11,7 +11,7 @@ class  PageRandomDogs  extends Component {
     render() {      
         return (
             <div >
-                <div key="1">
+                <div key="1" className = " d-flex flex-row justify-content-center  p-5" >
                     <input 
                         type="text" 
                         id="inputCountDog"  
@@ -26,13 +26,16 @@ class  PageRandomDogs  extends Component {
                         onClick={this.loadImages}
                     />
                 </div>
-                <div key="2" id="imagePlace">
+                <div key="2" id="imagePlace" className="d-flex flex-row flex-wrap justify-content-center">
                     <ImageDogsSet src={this.props.arrLinkImages}  />
                 </div>
             </div>
         );
     };
     
+    componentDidMount(){
+        this.props.clearArrayLinkImage();
+    }
     loadImages = () =>{
         let countDogsValue = document.getElementById('inputCountDog').value;
         let changeUrlForLoadLinksImage = this.props.changeUrlForLoadLinksImage;
@@ -55,6 +58,7 @@ const putStateToProps  = (state) =>{
 const  putActionToProps = (dispatch) =>{
     return {
         changeUrlForLoadLinksImage : bindActionCreators (changeUrlForLoadLinksImage, dispatch) ,
+        clearArrayLinkImage : bindActionCreators (clearArrayLinkImage, dispatch) 
     }
   };
 

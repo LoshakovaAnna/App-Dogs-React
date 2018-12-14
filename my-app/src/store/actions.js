@@ -25,3 +25,10 @@ export const changeUrlForLoadLinksImage = (newUrl) =>{
     payload : newUrl
   };
 };
+
+export const clearArrayLinkImage = () =>{
+  return {
+    type : 'CLEAR_ARRAY_LINK_IMAGE',
+    payload : []
+  };
+};
